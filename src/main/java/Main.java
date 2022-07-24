@@ -4,6 +4,8 @@ import util.ResourceLoader;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 /**
  * Программа генерирует исходный файл,
@@ -27,9 +29,13 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+
         FileGenerator fg = new FileGenerator();
         LineSorter lineSorter = new LineSorter();
         ResourceLoader resourceLoader = new ResourceLoader();
+
+        LocalDateTime from = LocalDateTime.now(); // Для вычисления времени выполнения программы
+
         try {
             fg.createFile(SOURCE_FILE_PATH, COUNT_OF_LINES, MAX_LINE_LENGTH);
             File inputFile = new File(SOURCE_FILE_PATH);
@@ -39,5 +45,10 @@ public class Main {
         } catch (IOException | IllegalArgumentException e) {
             e.printStackTrace();
         }
+
+        LocalDateTime to = LocalDateTime.now(); // Для вычисления времени выполнения программы
+        long minutes = Duration.between(from, to).toMinutes();
+        long seconds = Duration.between(from, to).toSeconds() - (Duration.between(from, to).toMinutes() * 60);
+        System.out.println("Время выполнения программы: " + minutes + " мин. " + seconds + " сек.");
     }
 }
