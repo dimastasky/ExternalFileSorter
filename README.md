@@ -30,5 +30,5 @@ fgyyyz378
 2. Перейти в папку target, где находится jar-файл;
 3. Выполнить java -jar CustisTestTask-1.0-SNAPSHOT-jar-with-dependencies.jar;
 
-3.1 Также можно выделить определенное количество памяти с помощью -Xmx512M, например
-      java -Xmx512M -jar CustisTestTask-1.0-SNAPSHOT-jar-with-dependencies.jar;
+3.1 Также можно выделить определенное количество памяти с помощью -Xmx512M, например:
+java -Xmx512M -jar CustisTestTask-1.0-SNAPSHOT-jar-with-dependencies.jar;
